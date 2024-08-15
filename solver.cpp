@@ -11,7 +11,7 @@ using namespace std;
 enum RetVal {
   sat_c,   // the formula has been satisfied
   unsat_c, // the formula has been unsatisfied
-  nor_c       // the formula is unresolved so far
+  nor_c    // the formula is unresolved so far
 };
 
 // Main class
@@ -259,7 +259,7 @@ int CDCL_solver::unit_propagate(int decision_level) {
 
 // Assigns antecedent and value to the literal
 void CDCL_solver::assign_literal(int variable, int decision_level,
-                                   int antecedent) {
+                                 int antecedent) {
   int literal = literal_to_variable_index(variable);
   int value = (variable > 0) ? 1 : 0;
   literals[literal] = value;
@@ -456,5 +456,6 @@ int main() {
   CDCL_solver solver;
   solver.initialize();
   solver.solve();
+  cout << endl;
   return 0;
 }
